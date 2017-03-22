@@ -1,6 +1,8 @@
 # OMMF2016 
 
-大垣mini maker faireに展示した「くだもの触って光ったり鳴ったり」のソースコードです。
+[ogaki mini maker faire 2016]()でCHIRIMEN Open Hardwareコミュニティの展示のに展示した「くだもの触って光ったり鳴ったり」のソースコードです。
+
+![image.jpg](./image.jpg)
 
 ## cheen-rimen
 
