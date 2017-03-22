@@ -1,6 +1,6 @@
 # OMMF2016 
 
-[ogaki mini maker faire 2016]()でCHIRIMEN Open Hardwareコミュニティの展示のに展示した「くだもの触って光ったり鳴ったり」のソースコードです。
+[ogaki mini maker faire 2016](http://ommf.iamas.ac.jp/)で[CHIRIMEN Open Hardwareコミュニティ](https://github.com/chirimen-oh)の展示作品群の１つとして展示した「くだもの触って光ったり鳴ったり」のソースコードです。
 
 ![image.jpg](./image.jpg)
 
