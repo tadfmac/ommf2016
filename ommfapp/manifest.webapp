@@ -1,0 +1,13 @@
+{
+  "name": "ommf-app v0.1",
+  "description": "ommf app",
+  "type": "certified",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "chirimen-oh",
+    "url": "https://github.com/chirimen-oh/"
+  },
+  "icons": {
+    "512": "/style/icons/ommf-app-512.png"
+  }
+}

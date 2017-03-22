@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+<title>ommf app</title>
+<style>
+*{
+    box-sizing:border-box;
+    padding:0px;
+    margin:0px;
+}
+#status{
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    font-size:32px;
+    background-color:black;
+    color:white;
+}
+#fps{
+    position:fixed;
+    bottom:30px;
+    right:0px;
+    font-size:32px;
+    background-color:black;
+    color:white;
+}
+</style>
+</head>
+<body>
+<div id="status">Connecting...</div>
+<div id="fps">0</div>
+<div id="pixiview"></div>
+<script src="./js/minified.js"></script>
+<script src="./js/bufferloader.js"></script>
+<script src="./js/poorws.js"></script>
+<script src="./js/pixi.min.js"></script>
+<script src="./js/webi2c-p2.js"></script>
+<script src="./js/cheenrimen.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>

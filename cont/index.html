@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>あひる</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8;"/>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+<script src='jquery-2.0.3.min.js'></script>
+<script src='poorws.js'></script>
+
+<link rel="stylesheet" href="css/spinners.css" type="text/css">
+<style>
+@font-face{
+  font-family:GloriaHallelujah;
+  src:url(./font/GloriaHallelujah.ttf) format("truetype");
+}
+
+*{
+	padding:0px;
+	margin:0px;
+}
+html,body{
+  height:100%;
+}
+
+#logo{
+  position:fixed;
+  z-index:102;
+  top:20px;
+  left:0px;
+  width:100%;
+  min-height:48px;
+  background-image:url("./logo.png");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+
+#send{
+  display:none;
+  outline: 0;
+  background-color:pink;
+  border: solid 8px DeepPink;
+  font-size:48px;
+  border-radius:140px;
+  width:280px;
+  height:280px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  cursor:pointer;
+}
+#statuswrap{
+  display:block;
+  position:fixed;
+  outline:0;
+  width:100%;
+  bottom:0;
+  left:0;
+  box-sizing:border-box;
+  height:40px;
+}
+#status{
+  font-family:GloriaHallelujah;
+  position: absolute;
+  z-index:101;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding:4px;
+  font-size:14px;
+  width:300px;
+  height:40px;
+  text-align:center;
+  line-height:40px;
+  vertical-align:middle;
+}
+
+.can0{
+  background-color:orange;
+  color:black;
+}
+.can1{
+  background-color:bisque;
+  color:black;
+}
+.can2{
+  background-color:lightcyan;
+  color:black;
+}
+.can3{
+  background-color:aquamarine;
+  color:black;
+}
+#cover{
+  display:inline;
+  position:fixed;
+  z-index:100;
+  width:100%;
+  min-height:100%;
+  top:0;
+  left:0;
+/*  background-color:rgba(0,0,0,0.8); */
+}
+
+#progress{
+  width:42px;
+  height:42px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+</style>
+</head>
+<body>
+<div id="wrapper" class="cheen">
+  <button id="send"><img src="./attack.png" width="90%"></button>
+</div>
+<div id="cover">
+  <div id="progress">
+    <span class="heartbeat-loader"></span>
+  </div>
+</div>
+<div id="statuswrap">
+  <div id="status">Connecting...</div>
+</div>
+<div id="logo"></div>
+<script>
+
+var host = "ws://mz4u.net:3004";
+var ws = new poorws(host);
+var status = 0;
+
+var mode = Math.floor(Math.random() * 4);
+
+$("body").addClass("can"+mode);
+$("#status").addClass("can"+mode);
+
+ws.onStatusChange = function(sts){
+  status = sts;
+  if(sts == 0){
+    $("#status").text("Connecting...");
+  }else if(sts == 1){
+    $("#status").text("Connected!");
+    $("#cover").fadeOut("300");
+    $("#send").fadeIn("300");
+  }else if(sts == 2){
+    $("#status").text("Disconnecting...");
+  }else if(sts == 3){
+    $("#status").text("Re-Connecting...");
+    $("#send").fadeOut("300");
+    $("#cover").fadeIn("300");
+  }
+};
+
+$(function(){
+  $("#send").bind({
+    "touchstart mousedown":function(e){
+      $("#send").css({"background-color":"HotPink"});
+      ws.send("cheen");
+    },
+    "touchend mouseup":function(){
+      $("#send").css({"background-color":"pink"});
+    }
+  });
+  $("body").bind({
+    "touchstart mousedown":function(e){
+      e.preventDefault();
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
